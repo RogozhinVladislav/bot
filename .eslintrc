@@ -1,0 +1,12 @@
+{
+  "extends": ["airbnb-base", "plugin:jest/recommended"],
+  "plugins": ["babel", "jest"],
+  "env": {
+    "node": true,
+    "jest": true
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "semi": ["error", "never"],
+  }
+}

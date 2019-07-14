@@ -1,0 +1,45 @@
+{
+  "name": "bot",
+  "version": "1.0.0",
+  "description": "Мой проект",
+  "main": "index.js",
+  "scripts": {
+    "babel-node": "babel-node",
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build",
+    "test": "jest",
+    "dev": "nodemon --exec babel-node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RogozhinVladislav/bot.git"
+  },
+  "author": "Рогожин Владислав",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RogozhinVladislav/bot/issues"
+  },
+  "homepage": "https://github.com/RogozhinVladislav/bot#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.5.0",
+    "@babel/core": "^7.5.4",
+    "@babel/node": "^7.5.0",
+    "@babel/preset-env": "^7.5.4",
+    "babel-eslint": "^10.0.2",
+    "babel-jest": "^24.8.0",
+    "eslint": "^6.0.1",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.18.0",
+    "jest": "^24.8.0",
+    "nodemon": "^1.19.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "cross-env": "^5.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.4",
+    "vk-io": "^4.0.0-rc.19"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "ignore": ["node_modules"],
+  "env": {
+    "NODE_ENV": "development",
+    "BABEL_DISABLE_CACHE": 1,
+    "PORT": 4000,
+    "CONFIRMATION": "ea421774",
+    "TOKEN": "88d0f095f53f00e172829793af57d766685f9475379031acc50f719e3b832ba9a93e506f05320718d0c33",
+    "ACCESS_TOKEN": "b5aa60f5e656563bb90c152227a784345cb3cc5779d658359142208f7c3fe704407c13d3e1d39d2e294ea"
+  },
+  "execMap": {
+    "js": "babel-node"
+  },
+  "ext": ".js,.json",
+  "watch": "./"
+}
