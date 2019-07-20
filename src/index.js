@@ -1,7 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 //import cors from 'cors'
-import easyvk from "easyvk";
+import _ from "lodash";
 import database from "../database";
 import { PORT, CONFIRMATION, TOKEN, ACCESS_TOKEN } from "../config";
 
@@ -28,16 +28,20 @@ database()
     process.exit(1);
   });
 
-// app.post("/", (req, res) => {
-//   const { body } = req;
-//   if (body.type === "confirmation") res.end(CONFIRMATION);
-// });
+app.post("/", (req, res) => {
+  const { body } = req;
+  if (body.type === "confirmation") res.end(CONFIRMATION);
+});
 
 const { VK } = require('vk-io');
 
 const vk = new VK({
 	token: TOKEN
 });
+
+import commandsInit from './commands'
+commandsInit(vk)
+
 
 vk.updates.hear('/start', async (context) => {
 	await context.send(`
@@ -49,23 +53,11 @@ vk.updates.hear('/start', async (context) => {
 	`);
 });
 
-vk.updates.hear('/cat', async (context) => {
-	await Promise.all([
-		context.send('Wait for the uploads awesome 😻'),
-
-		context.sendPhoto('https://loremflickr.com/400/300/')
-	]);
-});
 
 vk.updates.hear(['/time', '/date'], async (context) => {
 	await context.send(String(new Date()));
 });
 
-vk.updates.hear(/^\/reverse (.+)/i, async (context) => {
-	await context.send(
-		context.$match[1].split('').reverse().join('')
-	);
-});
 
 const catsPurring = [
 	'http://ronsen.org/purrfectsounds/purrs/trip.mp3',
